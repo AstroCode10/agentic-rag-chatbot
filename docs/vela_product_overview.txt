@@ -1,0 +1,121 @@
+VELA — PRODUCT OVERVIEW
+=======================
+
+What is Vela?
+-------------
+Vela is a cloud-based inventory and order management platform built for small
+to medium e-commerce businesses. It gives store owners a single place to track
+stock levels, manage orders across multiple sales channels, generate purchase
+orders to suppliers, and view real-time business reports — without needing a
+developer or an enterprise budget.
+
+Vela connects to the sales channels you already use (Shopify, WooCommerce,
+Etsy, Amazon) and pulls all your orders into one dashboard. When an item sells
+on any channel, Vela deducts it from your central inventory automatically. When
+stock runs low, Vela can alert you or raise a draft purchase order to your
+supplier on your behalf.
+
+Who is Vela for?
+----------------
+Vela is designed for:
+- Solo founders and small teams (1–20 people) running online stores
+- Businesses selling on more than one channel who are tired of managing
+  spreadsheets or reconciling stock manually
+- Store owners who have outgrown the basic inventory tools built into Shopify
+  or WooCommerce but are not ready for enterprise systems like NetSuite
+
+Vela is not designed for:
+- Businesses with physical retail locations requiring full point-of-sale (POS)
+  integration (we do not currently support POS)
+- Businesses needing manufacturing or bill-of-materials (BOM) tracking
+- Enterprise companies requiring on-premise hosting or custom SLAs
+
+Core features
+-------------
+INVENTORY MANAGEMENT
+- Central stock ledger: one source of truth synced across all connected channels
+- Variant tracking: manage size, colour, and material variants as separate SKUs
+- Bundles: define product bundles; Vela deducts component stock when a bundle sells
+- Low-stock alerts: set reorder points per SKU; receive email or Slack notifications
+- Stock adjustments: manually correct stock levels with an audit trail of who changed
+  what and when
+- Bulk import/export: upload or download your full inventory via CSV at any time
+
+ORDER MANAGEMENT
+- Unified order inbox: all orders from all channels appear in one list
+- Order status tracking: pending, processing, shipped, delivered, returned
+- Partial fulfilment: mark individual line items as shipped separately
+- Returns and restocking: process returns and choose whether to restock the item
+- Order notes: add internal notes to any order; notes are not visible to customers
+- Bulk actions: update status, print packing slips, or export orders in bulk
+
+SUPPLIER AND PURCHASE ORDERS
+- Supplier directory: store contact details, lead times, and payment terms per supplier
+- Purchase order generation: create POs manually or let Vela draft them automatically
+  when stock falls below reorder points
+- PO tracking: mark POs as sent, confirmed, partially received, or fully received
+- Landed cost tracking: record shipping and customs costs against incoming stock
+
+SALES CHANNELS
+Vela currently supports native integrations with:
+- Shopify (all plans)
+- WooCommerce
+- Etsy
+- Amazon (FBA and FBM)
+- eBay
+- Wix eCommerce
+Manual channel: enter orders by hand for markets, pop-ups, or phone orders
+
+REPORTING
+- Inventory valuation report: total stock value at cost and at retail price
+- Sales velocity report: units sold per SKU per day, week, or month
+- Low-stock report: all SKUs at or below their reorder point
+- Supplier performance report: average lead times and order accuracy per supplier
+- Profit margin report (Growth and Pro plans only): revenue minus cost of goods sold
+  per SKU and per order
+
+INTEGRATIONS
+- Accounting: QuickBooks Online, Xero (sync invoices and cost of goods)
+- Shipping: ShipStation, EasyPost (fetch rates, print labels, sync tracking numbers)
+- Communication: Slack (low-stock and order alerts)
+- Email: send order confirmations and shipping notifications via your own domain
+  (Growth and Pro plans only)
+
+TEAM AND ACCESS CONTROL
+- Invite unlimited team members on Growth and Pro plans (Starter: up to 2 users)
+- Role-based permissions: Admin, Manager, Fulfiller, Viewer
+- Activity log: full audit trail of all changes made by any team member
+
+Getting started
+---------------
+After signing up, the fastest path to value is:
+1. Connect your first sales channel (takes 2–5 minutes; Vela guides you step by step)
+2. Import your existing inventory via CSV or let Vela pull it from your connected channel
+3. Set reorder points for your top 20 SKUs
+4. Connect your shipping integration
+
+Most customers have their first channel live and inventory synced within 30 minutes
+of creating their account. A 14-day free trial is available on all plans with no
+credit card required.
+
+Mobile access
+-------------
+Vela has a mobile-optimised web interface accessible from any browser on iOS or
+Android. A dedicated mobile app for iOS and Android is currently in development
+and expected in Q3 2025. Push notifications for low-stock alerts and new orders
+are available via the mobile web interface today.
+
+Data and security
+-----------------
+- All data is stored in EU-West (Ireland) data centres by default
+- US region available on Pro plan
+- Data encrypted at rest (AES-256) and in transit (TLS 1.3)
+- SOC 2 Type II certified (report available on request for Pro customers)
+- Daily automated backups with 30-day retention
+- GDPR compliant; Data Processing Agreement available on request
+
+Uptime and support
+------------------
+Vela targets 99.9% uptime. Live status and incident history are published at
+status.getvela.com. Planned maintenance windows are announced at least 48 hours
+in advance and scheduled outside peak trading hours (weekday mornings, UTC).

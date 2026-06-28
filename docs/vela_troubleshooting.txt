@@ -1,0 +1,191 @@
+VELA — TROUBLESHOOTING AND TECHNICAL SUPPORT
+=============================================
+
+SALES CHANNEL CONNECTIONS
+--------------------------
+
+Problem: My Shopify store is not syncing orders
+Cause: This is almost always caused by one of three things — the Vela app was
+uninstalled from Shopify, the Shopify API credentials have expired, or the
+connection was disconnected from Vela's side.
+
+Steps to resolve:
+1. Go to Settings → Channels → Shopify and check the connection status indicator.
+   If it shows "Disconnected" or "Error", proceed to step 2.
+2. Click "Reconnect". You will be redirected to Shopify to re-authorise Vela.
+3. Complete the authorisation. You will be returned to Vela and a full sync will
+   begin automatically. This can take 5–20 minutes depending on order history.
+4. If the status shows "Connected" but orders are still not appearing, check that
+   the orders fall within the sync window. Vela imports orders from the past
+   90 days on initial connection; older orders are not imported.
+5. If the issue persists after reconnecting, contact support with your Shopify
+   store URL and the date range of missing orders.
+
+Problem: My Amazon FBA inventory numbers in Vela do not match Seller Central
+Cause: Amazon has a processing delay of up to 4 hours for inventory updates via
+their API. Vela syncs Amazon inventory every 2 hours, so the maximum expected
+lag between a sale and the stock adjustment in Vela is approximately 6 hours.
+
+If the discrepancy is larger than this or has persisted for more than 24 hours:
+1. Go to Settings → Channels → Amazon and click "Force sync".
+2. Wait 15 minutes and recheck.
+3. If the numbers still do not match, check whether you have FBA inventory spread
+   across multiple Amazon marketplaces (e.g. amazon.co.uk and amazon.de). Each
+   marketplace must be connected separately in Vela. Stock is tracked per
+   marketplace, not aggregated.
+
+Problem: Etsy orders are importing but the order status is not updating
+Cause: Etsy's API does not push status updates in real time. Vela polls for
+status changes every 30 minutes. Updates to shipping status made directly inside
+Etsy (e.g. marking as dispatched) will appear in Vela within 30 minutes.
+
+If you update shipping status inside Vela, that change is pushed to Etsy
+immediately. For two-way status sync to work reliably, we recommend managing
+fulfilment from Vela rather than switching between both platforms.
+
+Problem: I connected WooCommerce but no products are appearing
+Cause: The WooCommerce REST API must be enabled on your WordPress site. It is
+enabled by default in WooCommerce 2.6+, but some hosting providers or security
+plugins disable it.
+
+Steps to resolve:
+1. In your WordPress dashboard, go to WooCommerce → Settings → Advanced → REST API.
+2. Verify the API is enabled.
+3. Check that the API key you entered in Vela has "Read/Write" permissions, not
+   "Read only". A read-only key can retrieve products but cannot update stock,
+   which will cause sync errors.
+4. If you use a security plugin such as Wordfence or iThemes Security, check that
+   REST API requests from Vela's IP ranges are not being blocked. Our IP ranges
+   are listed at help.getvela.com/ip-allowlist.
+
+INVENTORY SYNC
+--------------
+
+Problem: Stock levels are changing unexpectedly
+Cause: This is most commonly caused by a second system also writing stock levels
+to one of your connected channels. If Shopify is also connected to another
+inventory tool, or if you are manually adjusting stock in Shopify as well as
+Vela, the two systems will conflict.
+
+Vela is designed to be the single source of truth for inventory. When Vela
+is connected to a channel, all stock adjustments should be made in Vela, not
+in the channel directly. Adjustments made in the channel will be overwritten
+by Vela's next sync.
+
+Steps to resolve:
+1. Check Settings → Activity log → filter by "Stock adjustment" to see what
+   changed and when.
+2. If the adjustment was made by an external system, disconnect the conflicting
+   integration from the other platform.
+3. If you need to adjust stock manually, always do so in Vela at
+   Inventory → (product) → Adjust stock.
+
+Problem: A bundle product is not deducting component stock correctly
+Cause: Bundles require all component SKUs to be active in Vela's inventory.
+If a component SKU was deleted or deactivated after the bundle was created,
+deductions will fail silently for that component.
+
+Steps to resolve:
+1. Go to Inventory → Bundles → (bundle name) and review the component list.
+2. Verify each component SKU is active (green indicator).
+3. If a component shows as inactive or missing, reactivate the SKU or update
+   the bundle to use the correct SKU.
+4. Reprocess any recent orders containing this bundle: go to Orders → (order) →
+   Actions → Reprocess stock deductions.
+
+ORDERS
+------
+
+Problem: An order is stuck in "Processing" and won't update
+Cause: Orders can get stuck if a fulfilment action (e.g. pushing a tracking
+number to Shopify) failed partway through. The order itself is saved in Vela
+but the channel update did not complete.
+
+Steps to resolve:
+1. Open the order and scroll to the Activity section at the bottom. Look for
+   any error messages from the last action.
+2. Click "Retry" next to the failed action.
+3. If the Retry button is not visible, click Actions → Reset order status →
+   set to "Processing" and then attempt the fulfilment action again.
+4. If the error message references an API or authentication error, reconnect
+   the relevant sales channel first (see Sales Channel Connections above) and
+   then retry.
+
+Problem: I accidentally marked an order as delivered. Can I reverse it?
+Cause: Marking an order as delivered is reversible in Vela, but the status
+change may already have been pushed to the sales channel.
+
+Steps to resolve:
+1. Open the order in Vela → Actions → Change status → set back to "Shipped".
+2. Vela will push the status reversal to the connected channel. Note that not
+   all channels support status reversals via API — Amazon, for example, does not
+   allow delivery status to be reversed via the API once set. In that case,
+   you must correct the status directly in Seller Central.
+
+ACCOUNT AND LOGIN
+-----------------
+
+Problem: I cannot log in — I am not receiving the email verification code
+Steps to resolve:
+1. Check your spam or junk folder for an email from noreply@getvela.com.
+2. Add noreply@getvela.com to your contacts or safe sender list and request a
+   new code.
+3. If you use a company email with strict filtering, ask your IT administrator
+   to whitelist the getvela.com sending domain.
+4. If the problem persists, contact support@getvela.com from the affected email
+   address and we will verify your identity manually.
+
+Problem: A team member cannot access features they should have permission for
+Cause: Vela has four roles — Admin, Manager, Fulfiller, and Viewer. Permissions
+are set per role, not per individual.
+
+Role permissions summary:
+- Admin: full access including billing, team management, and channel connections
+- Manager: full access to inventory, orders, suppliers; cannot access billing or
+  change channel connections
+- Fulfiller: can view and update order status and stock levels; cannot create or
+  delete products, suppliers, or purchase orders
+- Viewer: read-only access to all data; cannot make any changes
+
+To change a team member's role: Settings → Team → (member name) → Change role.
+Changes take effect immediately.
+
+PERFORMANCE AND LOADING
+------------------------
+
+Problem: The dashboard is loading slowly
+Steps to resolve:
+1. Check status.getvela.com for any ongoing incidents.
+2. Clear your browser cache and cookies for getvela.com and reload.
+3. Try a different browser or an incognito window to rule out a browser
+   extension conflict.
+4. If your workspace has more than 10,000 SKUs, some reports (particularly
+   the inventory valuation report) can take 30–60 seconds to load. This is
+   expected behaviour; we are working on improving performance for large
+   catalogues.
+
+CONTACTING SUPPORT
+------------------
+If none of the above steps resolve your issue:
+
+Starter plan: email support@getvela.com. Include your account email, a
+description of the issue, and any error messages or screenshots. Response
+within 2 business days.
+
+Growth plan: email support@getvela.com or use the live chat widget (bottom
+right of the screen, available weekdays 9am–6pm UTC). Response within
+1 business day.
+
+Pro plan: email support@getvela.com, use priority live chat (response within
+5 minutes during business hours), or call +44 20 3984 4410 (weekdays
+9am–6pm UTC).
+
+When contacting support, please always include:
+- Your account email address
+- The name of the affected workspace (if you have more than one)
+- Steps you have already tried
+- Any error messages shown on screen (exact text or screenshot)
+- Approximate date and time the issue started
+
+This allows us to diagnose the issue without going back and forth and
+resolve it as quickly as possible.

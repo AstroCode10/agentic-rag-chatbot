@@ -1,0 +1,133 @@
+VELA — ORDERS, BILLING AND PAYMENTS
+=====================================
+
+Subscription billing
+--------------------
+Vela subscriptions are billed in advance at the start of each billing period.
+If you sign up on the 14th of the month, your billing date is the 14th of
+every subsequent month (or year, for annual plans). Your billing date does not
+change when you upgrade or downgrade.
+
+Payment is processed automatically via the card saved on your account. If a
+payment fails, Vela retries on days 3, 5, and 7. If all retries fail, your
+account is moved to a restricted state: you can view data but syncing is paused
+until payment is resolved. We will email you at each retry and when the account
+is restricted.
+
+Changing your plan
+------------------
+UPGRADING
+You can upgrade from any plan to a higher plan at any time from Settings →
+Billing → Change plan. Upgrades take effect immediately. You are charged a
+prorated amount for the remaining days in your current billing period at the
+new plan's price, minus the unused value of your current plan.
+
+Example: you are on Growth (£79/month) with 15 days remaining in your billing
+period. You upgrade to Pro (£199/month). You are charged:
+  (£199 - £79) × (15 / 30) = £60 prorated charge
+
+Your next full billing date remains unchanged.
+
+DOWNGRADING
+Downgrades take effect at the start of your next billing period. You keep
+access to your current plan's features until then. No refund or credit is
+issued for the remaining days on the higher plan.
+
+If downgrading would put you over the lower plan's limits (e.g. you have
+8 channels connected and are downgrading from Growth to Starter which allows
+3), Vela will warn you and ask you to disconnect channels before the downgrade
+takes effect. If limits are still exceeded at the start of the new period,
+syncing for the excess channels is paused until you resolve it.
+
+Cancellation
+------------
+You can cancel your subscription at any time from Settings → Billing → Cancel
+subscription. Cancellation takes effect at the end of the current billing
+period — you retain full access until then. You will not be charged again after
+cancelling.
+
+After your subscription ends:
+- Your data (inventory, orders, suppliers) is retained for 30 days
+- During those 30 days you can log in, export your data as CSV, and reactivate
+- After 30 days your workspace and all data are permanently deleted
+- This deletion is irreversible; Vela cannot recover deleted workspaces
+
+If you cancel an annual plan, the remaining months are not refunded (except
+within the 7-day refund window described below).
+
+Refunds
+-------
+STANDARD REFUND POLICY
+Vela offers a full refund if you request it within 7 days of your first paid
+charge. This applies to the first payment after a free trial ends or after
+a new account is created. To request a refund, email billing@getvela.com with
+the subject line "Refund request" and include your account email address.
+Refunds are processed within 5–10 business days to the original payment method.
+
+After the 7-day window, we do not issue refunds for the current billing period.
+This applies to monthly and annual plans alike. If you cancel an annual plan
+after 7 days, no refund is issued for unused months.
+
+EXCEPTIONS
+We will issue a refund outside the standard policy if:
+- Vela experienced a verified outage of 4+ hours during your billing period
+  that materially impacted your use of the product (credit or refund at our
+  discretion, proportional to the downtime)
+- A billing error caused you to be charged an incorrect amount
+- You were charged after cancelling (we will refund in full)
+
+To raise an exception, email billing@getvela.com with your account details
+and a description of the issue.
+
+Updating payment details
+------------------------
+Go to Settings → Billing → Payment method to update your card at any time.
+Changes take effect immediately and will be used for the next billing attempt.
+If your payment has failed and your account is restricted, updating your card
+and clicking "Retry payment" will immediately attempt to process the outstanding
+charge.
+
+We do not store full card numbers. Vela uses Stripe for payment processing;
+only a tokenised reference to your card is stored on Vela's systems.
+
+Invoices and receipts
+---------------------
+A PDF invoice is generated after every successful charge and is:
+- Emailed to the billing email address on your account
+- Available in Settings → Billing → Invoice history
+
+Invoices include:
+- Invoice number and date
+- Description of the plan and billing period
+- Amount charged and currency
+- Your company name and billing address (if entered in Settings → Billing)
+- Vela's company details and VAT number
+
+To add a company name, VAT number, or billing address to your invoices, go to
+Settings → Billing → Billing details. Changes apply to future invoices only;
+past invoices cannot be reissued with different details.
+
+VAT
+---
+Vela is registered for VAT in the United Kingdom (VAT number: GB 423 1987 62).
+VAT at the current UK rate (20%) is added to subscriptions for customers whose
+billing address is in the UK. EU customers with a valid VAT number can enter it
+in Settings → Billing → Billing details to have VAT removed from their invoices
+(reverse charge applies). Customers outside the UK and EU are not charged VAT.
+
+Annual plans and invoicing
+--------------------------
+Annual Pro plans with a total value of £2,000 or more can be paid by bank
+transfer on receipt of invoice rather than by card. Contact billing@getvela.com
+to arrange this before signing up or upgrading. Payment is due within 14 days
+of the invoice date. The subscription activates once payment is received.
+
+Team billing
+------------
+Each Vela workspace has one billing owner. The billing owner is the person who
+originally set up the subscription. Only the billing owner can change the plan,
+update payment details, or cancel the subscription.
+
+To transfer billing ownership to another team member, the current billing owner
+must go to Settings → Team → (member name) → Make billing owner. Both parties
+will receive a confirmation email.

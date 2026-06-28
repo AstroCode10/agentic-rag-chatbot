@@ -1,0 +1,135 @@
+VELA — PRICING AND PLANS
+========================
+
+Overview
+--------
+Vela offers three paid plans and a 14-day free trial on all of them. There is
+no permanently free tier. Pricing is per workspace (one business), billed
+monthly or annually. Annual billing saves 20% compared to monthly.
+
+Plans at a glance
+-----------------
+
+STARTER — £29/month (or £23/month billed annually)
+Best for: solo founders or very small teams just getting started with inventory
+management, selling on one or two channels.
+
+Included:
+- Up to 2 user seats
+- Up to 3 connected sales channels
+- Up to 500 active SKUs
+- Up to 1,000 orders per month
+- Inventory management (all core features)
+- Order management (all core features)
+- Supplier directory and purchase orders
+- Low-stock alerts (email only)
+- Basic reporting (inventory valuation, low-stock, sales velocity)
+- CSV import and export
+- Standard email support (response within 2 business days)
+
+Not included on Starter:
+- Profit margin reporting
+- Custom email notifications via your own domain
+- Slack integration
+- QuickBooks / Xero accounting sync
+- ShipStation / EasyPost shipping integration
+- US data region
+- Priority support
+
+GROWTH — £79/month (or £63/month billed annually)
+Best for: growing businesses on multiple channels, small teams, sellers who
+need accounting sync and shipping integrations.
+
+Everything in Starter, plus:
+- Unlimited user seats
+- Up to 10 connected sales channels
+- Up to 5,000 active SKUs
+- Up to 10,000 orders per month
+- Profit margin reporting
+- Custom email notifications via your own domain
+- Slack integration for alerts
+- QuickBooks Online and Xero sync
+- ShipStation and EasyPost integration
+- Low-stock alerts via email and Slack
+- Priority email support (response within 1 business day)
+- Live chat support (weekdays, 9am–6pm UTC)
+
+Not included on Growth:
+- US data region
+- Dedicated onboarding session
+- Phone support
+- Custom SLA
+- SOC 2 report access
+
+PRO — £199/month (or £159/month billed annually)
+Best for: established businesses with high order volumes, larger teams, or those
+requiring the highest level of support and compliance documentation.
+
+Everything in Growth, plus:
+- Unlimited connected sales channels
+- Unlimited active SKUs
+- Unlimited orders per month
+- US data region option
+- Dedicated onboarding session with a Vela specialist (1 hour, booked after signup)
+- Phone support (weekdays, 9am–6pm UTC)
+- Priority live chat (response within 5 minutes during business hours)
+- Custom SLA available on request
+- SOC 2 Type II report available on request
+- Data Processing Agreement for GDPR compliance
+- Early access to new features
+
+Frequently asked questions — pricing
+-------------------------------------
+
+Q: Can I try Vela before paying?
+A: Yes. All plans include a 14-day free trial with full access to the plan's
+features. No credit card is required to start the trial. At the end of the
+trial you'll be asked to enter payment details to continue. If you don't,
+your account is paused (data retained for 30 days) and then deleted.
+
+Q: What happens if I exceed my plan's SKU or order limits?
+A: We do not cut off your account mid-month. If you exceed your limits, Vela
+will notify you by email and prompt you to upgrade. You have until the end of
+your current billing period to upgrade before syncing is paused. We never
+delete data due to overage.
+
+Q: Can I change plans at any time?
+A: Yes. You can upgrade immediately — the price difference is prorated to your
+remaining billing period. Downgrades take effect at the start of the next
+billing period. You cannot downgrade mid-period.
+
+Q: Is there a discount for annual billing?
+A: Yes — 20% off the monthly price when you pay annually upfront.
+Starter: £276/year (vs £348 monthly). Growth: £756/year (vs £948 monthly).
+Pro: £1,908/year (vs £2,388 monthly).
+
+Q: Do you offer discounts for startups or non-profits?
+A: We offer a 30% discount for registered non-profit organisations. Email
+billing@getvela.com with proof of non-profit status. We do not currently
+have a formal startup programme, but contact us if you are pre-revenue and
+we will do our best to help.
+
+Q: Is there a per-user fee?
+A: No. All plans are priced per workspace, not per seat. Growth and Pro
+include unlimited users. Starter is capped at 2 users.
+
+Q: What currency do you charge in?
+A: Vela bills in GBP (£) by default. If your card is in a different currency,
+your bank will apply its standard conversion rate. We do not add our own
+currency conversion fee.
+
+Q: Do you offer refunds?
+A: We offer a full refund if you cancel within 7 days of your first paid
+charge (not applicable to free trial periods). After 7 days, refunds are not
+issued for the current billing period but you will not be charged again after
+cancellation. See the Orders and Billing document for full details.
+
+Q: What payment methods do you accept?
+A: Visa, Mastercard, and American Express credit and debit cards. We do not
+currently accept PayPal, bank transfer, or invoicing (except for annual Pro
+plans over £2,000 — contact billing@getvela.com).
+
+Q: Can I get an invoice for my subscription?
+A: Yes. PDF invoices are generated automatically and available in Settings →
+Billing → Invoice history. They are also emailed to the billing email address
+on your account after each charge.
