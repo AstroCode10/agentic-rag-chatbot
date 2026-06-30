@@ -94,21 +94,27 @@ class SupportAgent:
     
     # Creates a response using the LLM model and available tools
     def create_response(self):
+        msg_with_sys = [
+            {
+                "role" : "system",
+                "content" : (
+                    "You are a helpful customer support agent for Vela, a cloud-based inventory and order management"
+                    "platform. Analyse the customer query and determine whether to call a tool or use your general,"
+                    "trained knowledge base. Answer customer questions about Vela's features, pricing, billing, and"
+                    "troubleshooting. You may use the search_knowledge_base tool to find in the support documentation."
+                    "Be concise, friendly, supportive and unambiguous, using simple language and avoiding jargon."
+                    "Remember to cite your source. And if a question is outside Vela's scope, be honest about it and"
+                    "do not create fake information."
+                )
+            }
+        ] + self.history
+
         response = self.client.chat.completions.create(
-            model="openrouter/qwen/qwen3-coder:free",
+            model="qwen/qwen3-next-80b-a3b-instruct:free",
             max_tokens=2000,
             tools=self.tools,
             tool_choice="auto",
-            messages=self.history,
-            system=(
-                "You are a helpful customer support agent for Vela, a cloud-based inventory and order management"
-                "platform. Analyse the customer query and determine whether to call a tool or use your general,"
-                "trained knowledge base. Answer customer questions about Vela's features, pricing, billing, and"
-                "troubleshooting. You may use the search_knowledge_base tool to find in the support documentation."
-                "Be concise, friendly, supportive and unambiguous, using simple language and avoiding jargon."
-                "Remember to cite your source. And if a question is outside Vela's scope, be honest about it and"
-                "do not create fake information."
-            )
+            messages=msg_with_sys
         )
 
         return response
@@ -117,7 +123,7 @@ class SupportAgent:
     def reset_history(self):
         self.history = []
     
-    # The interface through which the LLM can use the RAG
+    # The interface that allows the user to chat with the chatbot
     def chat(self, user_message: str) -> str:
         self.history.append({
             "role": "user",
@@ -125,57 +131,53 @@ class SupportAgent:
         })
 
         response = self.create_response()
+        print(f"[DEBUG] Initial response finish_reason: {response.choices[0].finish_reason}")
 
-        # Locally run the tools since the LLM cannot do so in its servers
-        while response.choices[0].finish_reason=="tool_calls":
+        while response.choices[0].finish_reason == "tool_calls":
             message = response.choices[0].message
             tool_calls = message.tool_calls
 
             if not tool_calls:
-                return
+                print("[DEBUG] No tool calls found, breaking loop")
+                break
             
             tool_call = tool_calls[0]
             tool_name = tool_call.function.name
-            tool_input = eval(tool_call.function.arguements)
+            tool_input = eval(tool_call.function.arguments)
             tool_call_id = tool_call.id
 
+            print(f"[DEBUG] Calling tool: {tool_name}")
             tool_result = self._handle_tool_call(tool_name, tool_input)
 
-            # Appends LLM message to history
-            self.history.append(
-                {
-                    "role" : "assistant",
-                    "content" : message.content or "",
-                    "tool_calls" : [
-                        {
-                            "id" : tool_call_id,
-                            "type" : "function",
-                            "function" : {
-                                "name" : tool_name,
-                                "arguements" : tool_call.function.arguements
-                            }
-                        }
-                    ]
-                }
-            )
+            self.history.append({
+                "role": "assistant",
+                "content": message.content or "",
+                "tool_calls": [{
+                    "id": tool_call_id,
+                    "type": "function",
+                    "function": {
+                        "name": tool_name,
+                        "arguments": tool_call.function.arguments
+                    }
+                }]
+            })
 
-            # Appends tool use to history
-            self.history.append(
-                {
-                    "role" : "tool",
-                    "tool_call_id" : tool_call_id,
-                    "content" : tool_result
-                }
-            )
+            self.history.append({
+                "role": "tool",
+                "tool_call_id": tool_call_id,
+                "content": tool_result
+            })
 
-            # Obtains another response to present findings to the user using updated history
             response = self.create_response()
-            final_answer = response.choices[0].message.content or ""
-            self.history.append(
-                {
-                    "role" : "assistant",
-                    "content" : final_answer
-                }
-            )
+            print(f"[DEBUG] After tool call, finish_reason: {response.choices[0].finish_reason}")
+            print(f"[DEBUG] Message content: {response.choices[0].message.content}")
 
-            return final_answer
+        final_answer = response.choices[0].message.content or ""
+        print(f"[DEBUG] Final answer: {final_answer}")
+        
+        self.history.append({
+            "role": "assistant",
+            "content": final_answer
+        })
+
+        return final_answer

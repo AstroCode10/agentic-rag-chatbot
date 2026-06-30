@@ -2,11 +2,11 @@ import chromadb
 import uuid
 from sentence_transformers import SentenceTransformer
 
-def embed_and_store(chunks: list[dict], collection_name: str = "docs") -> chromadb.Collection:
+def embed_and_store(chunks: list[dict], collection_name: str="docs") -> chromadb.Collection:
 
     # Initialize the SentenceTransformer model and ChromaDB client
     model = SentenceTransformer("all-MiniLM-L6-v2")
-    client = chromadb.PersistentClient()
+    client = chromadb.PersistentClient(path="./chroma_db")
 
     # Getting the essential data to add to the collection
     collection = client.get_or_create_collection(name=collection_name, metadata={"hnsw:space": "cosine"})

@@ -22,8 +22,6 @@ for doc in docs.keys():
             chunk["source"] = doc
         
         all_chunks.extend(chunks)
-    
-print(all_chunks)
 
 # Embedding and storing all documents
 embed_and_store(all_chunks, collection_name="vela_support")

@@ -2,7 +2,7 @@ import chromadb
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
 # Retrieval
-def retrieve(query:str, collection: chromadb.Collecton, model: SentenceTransformer,
+def retrieve(query:str, collection: chromadb.Collection, model: SentenceTransformer,
              top_k: int = 20) -> list[dict]:
     
     # Embed the query using the embedding model

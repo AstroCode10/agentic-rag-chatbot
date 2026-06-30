@@ -42,7 +42,7 @@ Step 5 — Evaluate          RAGAS scores: faithfulness, answer relevance, conte
 | Embedding | `sentence-transformers` (`all-MiniLM-L6-v2`) | Text → 384-dim vectors |
 | Vector store | `chromadb` | Persistent local vector database |
 | Re-ranking | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Precise relevance scoring |
-| Generation | OpenAI API (`gpt-oss-120b`) | Agent + answer generation |
+| Generation | OpenAI API (`meta-llama/llama-3.3-70b-instruct:free`) | Agent + answer generation |
 | Evaluation | `ragas` | Faithfulness, relevance, recall metrics |
 
 Everything except the Anthropic API runs locally. No external vector database accounts required.
